@@ -29,6 +29,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: DockerFileFolder/
-          file: Dockerfile
+          file: DockerFileFolder/DockerFile
           push: true
           tags: yrnp2355/testrepo1:latest
