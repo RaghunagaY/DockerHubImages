@@ -1,6 +1,10 @@
 name: Build and Push Docker image to Docker Hub
 
-on: push
+on:
+  push:
+    branches:
+      - main 
+
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -17,10 +21,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: List files for troubleshooting
+        run: ls -R
     
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: DockerFileFolder/
+          file: Dockerfile
           push: true
-          tags: yrnp2355/testrepo:latest
+          tags: yrnp2355/testrepo1:latest
