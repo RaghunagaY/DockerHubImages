@@ -31,4 +31,4 @@ jobs:
           context: DockerFileFolder/
           file: DockerFileFolder/DockerFile
           push: true
-          tags: yrnp2355/testrepo1:latest
+          tags: yrnp2355/testrepo:1.0
