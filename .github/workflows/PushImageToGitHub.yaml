@@ -22,8 +22,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      - name: List files for troubleshooting
-        run: ls -R
+      # - name: List files for troubleshooting
+      #   run: ls -R
     
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
@@ -31,4 +31,6 @@ jobs:
           context: DockerFileFolder/
           file: DockerFileFolder/DockerFile
           push: true
-          tags: yrnp2355/testrepo:2.0
+          tags: 
+            yrnp2355/testrepo:${{ github.sha }}  # Use commit SHA as the tag
+            yrnp2355/testrepo:latest              # Optional: latest tag
