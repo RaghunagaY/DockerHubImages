@@ -31,5 +31,6 @@ jobs:
           context: DockerFileFolder/
           file: DockerFileFolder/DockerFile
           push: true
-          tags: 
-            yrnp2355/testrepo:2.0
+          tags: |
+            yrnp2355/testrepo:${{ github.sha }}  # Use commit SHA as the tag
+            yrnp2355/testrepo:latest              # Optional: latest tag
